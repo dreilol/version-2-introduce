@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.getElementById(targetId);
             if (target) {
                 e.preventDefault();
-                const offset = 60; // Change this value to match your navbar height
+                const offset = 100; // Change this value to match your navbar height
                 const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }

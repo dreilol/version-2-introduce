@@ -1,5 +1,7 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-/* Base Styles */
+
+/* ===================== Base Styles ===================== */
 body {
   margin: 0;
   padding: 0;
@@ -13,12 +15,23 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===================== Navbar ===================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem; /* Reduce gap between children */
-  padding: 0 clamp(10px, 3vw, 10px) 0; /* Removed unnecessary top and bottom padding */
+  gap: 0.5rem;
+  padding: 0 clamp(10px, 3vw, 10px) 0;
   overflow: hidden;
   background-color: transparent;
   height: auto;
@@ -30,6 +43,7 @@ body::-webkit-scrollbar {
   z-index: 9000;
   transition: all 0.3s ease;
 }
+
 .navbar.scrolled {
   background-color: rgba(245, 239, 239, 0.558);
   backdrop-filter: blur(10px);
@@ -47,21 +61,26 @@ body::-webkit-scrollbar {
   height: auto;
   max-width: 100%;
 }
+
 .act {
   font-size: 0.5rem;
   font-family: "JetBrains Mono", monospace;
   font-weight: 700;
   line-height: 1px;
-  margin-left: -3rem; /* Add small left margin to bring closer to logo */
+  margin-left: -7rem;
+  margin-top: 0.5rem;
 }
+
 .act2 {
   font-size: 1rem;
 }
+
 .act3 {
   font-size: 1.5rem;
   margin-top: 2px;
 }
-/* Hamburger Button */
+
+/* ===================== Hamburger Button ===================== */
 .hamburger {
   width: 44px;
   height: 44px;
@@ -71,7 +90,6 @@ body::-webkit-scrollbar {
   align-items: center;
   cursor: pointer;
   z-index: 3001;
-
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background 0.2s, box-shadow 0.2s;
@@ -98,19 +116,24 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
 }
 
-.hamburger .line:nth-child(1) {
-  top: 12px;
-}
+.hamburger .line:nth-child(1) { top: 12px; }
+.hamburger .line:nth-child(2) { top: 20px; }
+.hamburger .line:nth-child(3) { top: 28px; }
 
-.hamburger .line:nth-child(2) {
+/* Hamburger Active State */
+.hamburger.active .line:nth-child(1) {
   top: 20px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #fff;
+}
+.hamburger.active .line:nth-child(2) { opacity: 0; }
+.hamburger.active .line:nth-child(3) {
+  top: 20px;
+  transform: translateX(-50%) rotate(-45deg);
+  background: #fff;
 }
 
-.hamburger .line:nth-child(3) {
-  top: 28px;
-}
-
-/* Overlay Menu */
+/* ===================== Overlay Menu ===================== */
 .overlay {
   height: 100vh;
   width: 100%;
@@ -146,59 +169,41 @@ body::-webkit-scrollbar {
   text-decoration: underline;
 }
 
-/* Active State */
 .overlay.active {
   opacity: 1;
   visibility: visible;
   z-index: 2000;
 }
 
-.hamburger.active .line:nth-child(1) {
-  top: 20px;
-  transform: translateX(-50%) rotate(45deg);
-  background: #ffffff;
-}
-
-.hamburger.active .line:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .line:nth-child(3) {
-  top: 20px;
-  transform: translateX(-50%) rotate(-45deg);
-  background: #ffffff;
-}
-
+/* ===================== Home Section ===================== */
 .home {
   position: relative;
   padding: 0;
   overflow: hidden;
-  margin-top: min(4rem, 10vh);
+  margin-top: min(3rem, 10vh);
   width: 100%;
   height: 120vh;
-  background-color:red
 }
 
+/* Spline Robot Styles */
 .robot {
   pointer-events: none;
   z-index: 500;
-  position: relative;
-
-  margin-top: min(-400px, -60vh);
-  margin-left: -3vw;
   position: absolute;
+  margin-top: min(-385px, -55vh);
+  margin-left: -3.5vw;
 }
 
-
+/* Name Section Styles */
 .name {
   margin-top: 5vh;
   font-family: "Oswald", sans-serif;
-  padding-left: 5vw;
-width: 100vw;
+  padding-left: 2.5vw;
+  width: 100vw;
 }
 
 .firstn {
- font-size: clamp(4rem, 100vw, 7rem);
+  font-size: clamp(4rem, 100vw, 7rem);
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -206,7 +211,7 @@ width: 100vw;
 }
 
 .secondn {
- font-size: clamp(3rem, 80vw, 6.5rem);
+  font-size: clamp(3rem, 80vw, 6.5rem);
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -215,37 +220,46 @@ width: 100vw;
   line-height: 1;
 }
 
+/* Title Styles */
 .titlee {
   color: #2d3748;
   font-family: "Poppins";
   font-weight: 600;
-  font-size: clamp(1.2rem, 6vw, 2rem);
+  font-size: clamp(1.5rem, 7vw, 2.5rem);
   margin-top: -3vh;
   margin-left: 6vw;
 }
 
+/* ===================== Contact Section ===================== */
 .contact {
   font-family: "Poppins";
-  font-weight: 500;
-  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-weight: 600;
   width: fit-content;
   transform: rotateZ(90deg);
   position: relative;
-  left: -20vw;
-  top: 15vh;
+  left: -36vw;
+  top: 20vh;
 }
 
 .contact a {
   z-index: 2000;
   text-decoration: none;
-
   color: #3182ce;
+  font-size: clamp(1rem, 4vw, 1.5rem);
 }
+
+.contact a img {
+  width: clamp(20px, 5vw, 30px);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ===================== About Section ===================== */
 .about {
   position: relative;
-  top: min(40rem, 80vh);
+  top: -25vh;
   z-index: 1001;
-  background-color: peachpuff;
+
   width: 100%;
   padding: 1rem 0;
 }
@@ -266,12 +280,7 @@ width: 100vw;
   position: relative;
 }
 
-.intimg img {
-  width: clamp(50px, 15vw, 70px);
-  position: absolute;
-  top: -2rem;
-  right: 5vw;
-}
+
 
 .intxt {
   font-family: poppins;
@@ -294,40 +303,127 @@ width: 100vw;
   padding: 10px;
 }
 
+/* ===================== Technical Skills ===================== */
 .techskills {
-  background-color: rgb(201, 123, 6);
-  padding: 5vh 3vw;
-  font-family: poppins;
-  font-weight: 400;
+  background-color: #fff8e1;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+  padding: 2vh 1vw;
+  margin: 1.2rem auto;
   text-align: center;
+  max-width: 400px;
 }
-
 .techskills h1 {
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: #d97706;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
 }
-
+.techskills h1 i {
+  color: #3182ce;
+  font-size: 1em;
+}
+.techskills-desc {
+  font-size: 0.98em;
+  color: #374151;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
 .techskill {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(10px, 3vw, 20px);
+  gap: 1em;
   align-items: center;
   justify-content: center;
-  max-width: 90%;
   margin: 0 auto;
 }
-
-.techskill img {
-  width: clamp(40px, 15vw, 60px);
-  border: 2px solid white;
-  padding: 10px;
-  transition: transform 0.3s ease;
+.techskill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+  padding: 0.7em 0.8em;
+  min-width: 70px;
+  transition: transform 0.2s;
+}
+.techskill-item:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(44,62,80,0.13);
+}
+.techskill-item img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.2em;
+}
+.techskill-item span {
+  font-size: 0.95em;
+  color: #2d3748;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.techskill img:hover {
-  transform: scale(1.1);
+/* ===================== Minimalist Technical Skills Section ===================== */
+.minimalist-techskills {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.2rem 0 0.5rem 0;
+  margin: 0 auto 1.2rem auto;
+  text-align: center;
+  max-width: 340px;
+}
+.minimalist-techskills-heading {
+  font-size: 1.1rem;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.7em;
+  letter-spacing: 0.5px;
+}
+.minimalist-techskill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.minimalist-techskill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.3em 0.5em;
+  min-width: 60px;
+  transition: none;
+}
+.minimalist-techskill-item img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 0.1em;
+}
+.minimalist-techskill-item span {
+  font-size: 0.9em;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
+/* ===================== Tools Section ===================== */
 .tools {
   background-color: aliceblue;
   padding: 5vh 3vw;
@@ -359,33 +455,160 @@ width: 100vw;
   transform: scale(1.1);
 }
 
-/* Media Queries */
+/* ===================== Minimalist Tools Section ===================== */
+.minimalist-tools {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.2rem 0 0.5rem 0;
+  margin: 0 auto 1.2rem auto;
+  text-align: center;
+  max-width: 340px;
+}
+.minimalist-tools-heading {
+  font-size: 1.1rem;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.7em;
+  letter-spacing: 0.5px;
+}
+.minimalist-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.3em 0.5em;
+  min-width: 60px;
+}
+.tool-item img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 0.1em;
+}
+.tool-item span {
+  font-size: 0.9em;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
 
-@media screen and (max-width: 400px) {
+/* ===================== Enhanced Intro Container Styles ===================== */
+.enhanced-intro {
+ 
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 540px;
+  transition: box-shadow 0.3s;
+}
+.enhanced-intro:hover {
+  box-shadow: 0 12px 40px rgba(44, 62, 80, 0.22);
+}
+
+/* Highlighted Keywords and Icons */
+.highlight {
+  color: #000000;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  margin: 0 0.1em;
+  display: inline-block;
+}
+.highlight i {
+  margin-right: 0.3em;
+  color: #3182ce;
+}
+
+/* ===================== Interests Section ===================== */
+.enhanced-apart {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.interests-heading {
+  margin-top: 0;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.35em;
+}
+.interests-desc {
+  margin-bottom: 0.7em;
+  color: #374151;
+  font-size: 1.08em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.interests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 320px;
+  padding-left: 2em;
+}
+.interest-game, .interest-movie, .interest-bike {
+  font-size: 1.08em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+.interest-game {
+  color: #2563eb;
+}
+.interest-game i {
+  color: #3182ce;
+  margin-right: 6px;
+}
+.interest-movie {
+  color: #be185d;
+}
+.interest-movie i {
+  color: #be185d;
+  margin-right: 6px;
+}
+.interest-bike {
+  color: #059669;
+}
+.interest-bike i {
+  color: #059669;
+  margin-right: 6px;
+}
+
+/* ===================== Media Queries ===================== */
+@media screen and (min-width: 481px) {
   .firstn {
     font-size: clamp(5rem, 29vw, 9rem);
   }
   .secondn {
     font-size: clamp(4rem, 25vw, 7rem);
   }
-  .act{
+  .act {
     margin-left: -3rem;
-margin-top: 0.5rem;  }
-.robot{
-  margin-left: -4rem;
-
+    margin-top: 0.5rem;
+  }
+  .robot {
+    margin-left: -5rem;
+  }
 }
-}
-
-
-
-/* Ensure smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Prevent horizontal overflow */
-* {
-  max-width: 100%;
-  box-sizing: border-box;
+@media (max-width: 600px) {
+  .enhanced-intro {
+    padding: 1rem 0.5rem;
+    font-size: 0.98rem;
+  }
 }
