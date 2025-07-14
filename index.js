@@ -23,4 +23,34 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         });
     });
+    
+    // Smooth scroll with offset for anchor links
+    // This will offset scroll by 60px from the top for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').slice(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                e.preventDefault();
+                const offset = 60; // Change this value to match your navbar height
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Fade-in effect for the about section
+    const aboutSection = document.querySelector('.about');
+    if (aboutSection) {
+      aboutSection.classList.add('fade-in-init');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      observer.observe(aboutSection);
+    }
 });

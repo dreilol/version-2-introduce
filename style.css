@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem; /* Reduce gap between children */
-  padding: clamp(15px, 4vw, 25px) clamp(10px, 3vw, 10px) clamp(20px, 4vw, 30px); /* Slightly reduced bottom padding */
+  padding: 0 clamp(10px, 3vw, 10px) 0; /* Removed unnecessary top and bottom padding */
   overflow: hidden;
   background-color: transparent;
   height: auto;
@@ -175,6 +175,7 @@ body::-webkit-scrollbar {
   overflow: hidden;
   margin-top: min(4rem, 10vh);
   width: 100%;
+  height: 120vh;
   background-color:red
 }
 
@@ -182,11 +183,12 @@ body::-webkit-scrollbar {
   pointer-events: none;
   z-index: 500;
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  margin-top: min(-530px, -70vh);
-  margin-left: -5vw;
+
+  margin-top: min(-400px, -60vh);
+  margin-left: -3vw;
+  position: absolute;
 }
+
 
 .name {
   margin-top: 5vh;
@@ -217,20 +219,20 @@ width: 100vw;
   color: #2d3748;
   font-family: "Poppins";
   font-weight: 600;
-  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-size: clamp(1.2rem, 6vw, 2rem);
   margin-top: -3vh;
-  margin-left: 5vw;
+  margin-left: 6vw;
 }
 
 .contact {
   font-family: "Poppins";
   font-weight: 500;
-  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-size: clamp(1rem, 4vw, 1.4rem);
   width: fit-content;
   transform: rotateZ(90deg);
   position: relative;
-  left: -12vw;
-  top: 50vh;
+  left: -20vw;
+  top: 15vh;
 }
 
 .contact a {
@@ -241,11 +243,22 @@ width: 100vw;
 }
 .about {
   position: relative;
-  top: min(53rem, 100vh);
+  top: min(40rem, 80vh);
   z-index: 1001;
   background-color: peachpuff;
   width: 100%;
   padding: 1rem 0;
+}
+
+.about.fade-in-init {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .intr {
@@ -347,18 +360,6 @@ width: 100vw;
 }
 
 /* Media Queries */
-@media screen and (max-width: 360px) {
-  
-  .hamburger {
-    margin-left: 2rem;
-  }
-
-  .robot {
-    margin-top: -60vh;
-  }
-
-
-}
 
 @media screen and (max-width: 400px) {
   .firstn {
@@ -368,28 +369,15 @@ width: 100vw;
     font-size: clamp(4rem, 25vw, 7rem);
   }
   .act{
-    margin-left: -6rem;
+    margin-left: -3rem;
 margin-top: 0.5rem;  }
+.robot{
+  margin-left: -4rem;
+
+}
 }
 
-@media screen and (min-width: 768px) {
-  .intxt {
-    padding: 2rem;
-  }
 
-  .name {
-    padding-left: 10vw;
-  }
-
-  .robot {
-    margin-top: -80vh;
-  }
-
-
-  .about {
-    top: 90vh;
-  }
-}
 
 /* Ensure smooth scrolling */
 html {
