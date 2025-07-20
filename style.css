@@ -612,3 +612,44 @@ html {
     font-size: 0.98rem;
   }
 }
+
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Masonry layout settings */
+.grid-sizer,
+.grid-item {
+  width: 100%;
+}
+
+.grid-item {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  box-sizing: border-box;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.grid-item:hover {
+  transform: scale(1); /* Scale to original size on hover */
+}
+.grid-item .inner {
+  transform: scale(0.9);
+  transform-origin: top left;
+}
+
+@media (max-width: 480px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}

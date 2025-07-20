@@ -54,3 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(aboutSection);
     }
 });
+
+
+// Initialize Masonry after images load
+window.addEventListener('load', () => {
+  const grid = document.querySelector('.grid');
+  new Masonry(grid, {
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    gutter: 10,
+    percentPosition: true
+  });
+});
