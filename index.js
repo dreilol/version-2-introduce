@@ -1,3 +1,6 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const overlay = document.getElementById('overlay');
