@@ -108,17 +108,35 @@
 
     </div>
 
-    <div class="grid">
-    <div class="grid-sizer"></div>
+  <div class="grid">
+  <div class="grid-sizer"></div>
 
-    <!-- Gallery items -->
-     <div class="inner">
-    <div class="grid-item"><img src="images/1.jpg" alt="Image 1"></div>
-    <div class="grid-item"><img src="images/2.jpg" alt="Image 2"></div>
-    <div class="grid-item"><img src="images/3.jpeg" alt="Image 3"></div>
-    <div class="grid-item"><img src="images/4.png" alt="Image 4"></div>
-     </div>
+  <!-- Correct structure: each item has its own .inner -->
+  <div class="grid-item">
+    <div class="inner">
+      <img src="images/1.jpg" alt="Image 1">
+    </div>
   </div>
+
+  <div class="grid-item">
+    <div class="inner">
+      <img src="images/2.jpg" alt="Image 2">
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <div class="inner">
+      <img src="images/3.jpeg" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <div class="inner">
+      <img src="images/4.png" alt="Image 4">
+    </div>
+  </div>
+</div>
+
 
     <!-- Scripts: Navbar, Spline Robot, Scroll Effect -->
     <script src="index.js"></script>
@@ -127,9 +145,12 @@
 
 
     
-  <!-- Masonry JS CDN -->
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-  
+<!-- Masonry -->  
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<!-- imagesLoaded (to wait for image load before layout) -->
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
 
 </body>
 </html>

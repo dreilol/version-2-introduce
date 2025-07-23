@@ -612,24 +612,31 @@ html {
     font-size: 0.98rem;
   }
 }
-
-
 .grid {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0.5rem;
 }
 
-/* Masonry layout settings */
+/* MOBILE FIRST: 2 columns by default */
 .grid-sizer,
 .grid-item {
-  width: 100%;
+  width: 48%; /* 2 items per row with small gaps */
 }
 
+/* Gap between items */
 .grid-item {
   margin-bottom: 0.5rem;
   padding: 0.25rem;
   box-sizing: border-box;
 }
+
+/* Optional: Shrink visual content slightly */
+.grid-item:hover .inner {
+  transform: scale(2); /* Slight zoom */
+  transition: transform 0.2s ease;
+}
+
 
 .grid-item img {
   width: 100%;
@@ -639,17 +646,8 @@ html {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.grid-item:hover {
-  transform: scale(1); /* Scale to original size on hover */
-}
-.grid-item .inner {
-  transform: scale(0.9);
-  transform-origin: top left;
+/* Hover zoom */
+.grid-item:hover .inner {
+  transform: scale(1);
 }
 
-@media (max-width: 480px) {
-  .grid-sizer,
-  .grid-item {
-    width: 100%;
-  }
-}
