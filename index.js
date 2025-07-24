@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -58,16 +57,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Wait until all images in the grid have fully loaded
 window.addEventListener('load', () => {
   const grid = document.querySelector('.grid');
-  const msnry = new Masonry(grid, {
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    gutter: 10,
-    percentPosition: true
-  });
 
-  imagesLoaded(grid).on('progress', () => {
-    msnry.layout();
-  });
+  // Make sure grid exists
+  if (grid) {
+    // Initialize Masonry
+    const masonry = new Masonry(grid, {
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      gutter: 10,
+      percentPosition: true
+    });
+
+    // Optional: re-layout after images are loaded (in case Masonry misfires)
+    imagesLoaded(grid, () => {
+      masonry.layout();
+    });
+  }
 });
